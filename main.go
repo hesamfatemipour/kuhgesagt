@@ -14,7 +14,7 @@ var dictFile embed.FS
 func main() {
 	data, err := dictFile.ReadFile("dict.tsv")
 	if err != nil {
-		fmt.Printf("Error: Could not read dict.tsv: %v\n", err)
+		fmt.Printf("Could not read dict.tsv: %v\n", err)
 		return
 	}
 
@@ -27,12 +27,12 @@ func main() {
 	}
 
 	if len(lines) == 0 {
-		fmt.Println("Error: dict.tsv is empty.")
+		fmt.Println("dict.tsv is empty.")
 		return
 	}
 
 	r := rand.New(rand.NewSource(time.Now().UnixNano()))
-	
+
 	found := false
 	for i := 0; i < 10; i++ {
 		pick := lines[r.Intn(len(lines))]
@@ -62,7 +62,9 @@ func renderKuhgesagt(word, def, de, en string) {
 			width = len(l)
 		}
 	}
-	if width < 40 { width = 40 }
+	if width < 40 {
+		width = 40
+	}
 
 	fmt.Println("  " + strings.Repeat("-", width+2))
 	for _, l := range content {
@@ -80,7 +82,9 @@ func renderKuhgesagt(word, def, de, en string) {
 func wrap(text string, limit int) []string {
 	var result []string
 	words := strings.Fields(text)
-	if len(words) == 0 { return result }
+	if len(words) == 0 {
+		return result
+	}
 
 	curr := words[0]
 	for _, w := range words[1:] {
