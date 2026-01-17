@@ -33,14 +33,12 @@ func main() {
 
 	r := rand.New(rand.NewSource(time.Now().UnixNano()))
 
-	found := false
 	for i := 0; i < 10; i++ {
 		pick := lines[r.Intn(len(lines))]
 		parts := strings.Split(pick, "\t")
 
 		if len(parts) >= 4 {
 			renderKuhgesagt(parts[0], parts[1], parts[2], parts[3])
-			found = true
 			break
 		}
 	}
