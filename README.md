@@ -15,7 +15,6 @@ cowsay's evil german twin.
             (__)\       )\/\
                 ||----w |
                 ||     ||
-
 ```
 
 Like Cowsay everytime you open a terminal, print's out a random word selected from [this](https://ankiweb.net/shared/info/1431033948) dictionary.
